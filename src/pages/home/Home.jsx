@@ -13,19 +13,24 @@ import PopularProducts from '../../components/popular-products/PopularProducts'
 import Marque from '../../components/marque/Marque'
 import Blog from '../../components/blog/Blog'
 import FamousProducts from '../../components/famous-products/FamousProducts'
+import Meta from '../../components/meta/Meta'
 
 const Home = () => {
   return (
-    <div className="home">
-      <Banner />
-      <Offers services={services} items={items}/>
-      <Product />
-      <FamousProducts />
-      <Special />
-      <PopularProducts />
-      <Marque images={images} />
-      <Blog />
-    </div>
+    <>
+      <Meta title={'Home'} />
+      <div className="home">
+        <Banner />
+        <Offers services={services} items={items}/>
+        <Product />
+        <FamousProducts />
+        <Special />
+        <PopularProducts />
+        <Marque images={images} />
+        <Blog />
+      </div>
+    </>
+    
   )
 }
 
