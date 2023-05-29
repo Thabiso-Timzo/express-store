@@ -5,10 +5,11 @@ import blog from '../../assets/blog/blog-1.jpeg'
 
 const BlogCard = () => {
   return (
-    <div className="col-3">
+   
+   
       <div className="blog-card">
         <div className="card-image">
-          <img src={blog} className="img-fluid" alt="" />
+          <img src={blog} className="img-fluid w-100" alt="" />
           <div className="block-content">
             <p className='date'>05 May 2023</p>
             <h5 className='title'>Blog Secure</h5>
@@ -17,7 +18,7 @@ const BlogCard = () => {
           </div>
         </div>
       </div>
-    </div>
+   
   )
 }
 
