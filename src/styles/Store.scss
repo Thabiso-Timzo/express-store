@@ -1,0 +1,40 @@
+.store {
+    margin: 10px;
+
+    .filter-card {
+        background-color: var(--color-DEDEDE);
+        border-radius: 10px;
+        padding: 10px 15px;
+
+        .filter-title {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 13px;
+            line-height: 30px;
+            color: var(--color-464646);
+            cursor: pointer;
+        }
+
+        .sub-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-1A1A1A);
+            margin-bottom: 15px;
+        }
+    }
+
+    .filter-sort-grid {
+        padding: 10px;
+        background-color: var(--color-DEDEDE);
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .store {}
+}
