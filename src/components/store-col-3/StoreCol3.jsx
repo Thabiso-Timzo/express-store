@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Colors from '../colors/Colors'
+
 const StoreCol3 = ({ pic1, ratingValue, handleRating, Rating }) => {
   return (
     <div className="col-3">
@@ -51,27 +53,7 @@ const StoreCol3 = ({ pic1, ratingValue, handleRating, Rating }) => {
                     <h5 className="sub-title mt-3">Colors</h5>
                     <div>
                         <div>
-                            <ul className="colors ps-0">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                           <Colors />
                         </div>
                     </div>
                     <h5 className="sub-title mt-3">Size</h5>
