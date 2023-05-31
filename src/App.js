@@ -13,6 +13,8 @@ import Compare from './pages/compare/Compare';
 import Store from './pages/store/Store';
 import Error404 from './pages/404/Error404';
 import Blog from './pages/blog/Blog'
+import ForgotPassword from './pages/forgot-password/ForgotPassword';
+import Account from './components/account/Account';
 
 function App() {
   return (
@@ -24,8 +26,11 @@ function App() {
           <Route path='contact' element={<Contact />} />
           <Route path='cart' element={<Cart />} />
           <Route path='wishlist' element={<WishList />} />
-          <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
+          <Route path='auth' element={<Account />}>
+            <Route index element={<Login />} />
+            <Route path='forgot-password' element={<ForgotPassword />} />
+            <Route path='register' element={<Register />} />
+          </Route>
           <Route path='compare' element={<Compare />} />
           <Route path='store' element={<Store />} />
           <Route path='blog' element={<Blog />} />
