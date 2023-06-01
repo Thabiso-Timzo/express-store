@@ -16,8 +16,8 @@ export const information = [
     },
     {
         id: 4,
-        name: 'Terms of service',
-        url: 'terms-of-service'
+        name: 'Terms and conditions',
+        url: 'terms-and-conditions'
     },
     {
         id: 5,
