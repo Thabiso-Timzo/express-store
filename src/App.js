@@ -15,6 +15,13 @@ import Error404 from './pages/404/Error404';
 import Blog from './pages/blog/Blog'
 import ForgotPassword from './pages/forgot-password/ForgotPassword';
 import Account from './components/account/Account';
+import ResetPassword from './pages/reset-password/ResetPassword';
+import SingleBlog from './pages/single-blog/SingleBlog';
+import RefundPolicy from './pages/refund-policy/RefundPolicy';
+import PrivatePolicy from './pages/private-policy/PrivatePolicy';
+import ShippingPolicy from './pages/shipping-policy/ShippingPolicy';
+import TermsAndConditions from './pages/terms-and-conditions/TermsAndConditions';
+import SingleProduct from './pages/single-product/SingleProduct';
 
 function App() {
   return (
@@ -30,10 +37,17 @@ function App() {
             <Route index element={<Login />} />
             <Route path='forgot-password' element={<ForgotPassword />} />
             <Route path='register' element={<Register />} />
+            <Route path='reset-password' element={<ResetPassword />} />
           </Route>
           <Route path='compare' element={<Compare />} />
           <Route path='store' element={<Store />} />
+          <Route path='product/:id' element={<SingleProduct />} />
           <Route path='blog' element={<Blog />} />
+          <Route path='blog/:id' element={<SingleBlog />} />
+          <Route path='refund-policy' element={<RefundPolicy />} />
+          <Route path='privacy-policy' element={<PrivatePolicy />} />
+          <Route path='shopping-policy' element={<ShippingPolicy />} />
+          <Route path='terms-and-conditions' element={<TermsAndConditions />} />
           <Route path='*' element={<Error404 />} />
         </Route>
       </Routes>

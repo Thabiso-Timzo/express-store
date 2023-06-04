@@ -20,7 +20,7 @@ const ProductCard = ({ grid }) => {
   return (
     <>
       <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
-      <div className="product-card position-relative">
+      <Link to="/product/:id" className="product-card position-relative">
         <div className="product-image">
           <img src={blog} alt="" />
           <div className="product-details">
@@ -39,8 +39,9 @@ const ProductCard = ({ grid }) => {
             </div>
           </div>
         </div>
-      </div>
-    </div><div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
+      </Link>
+    </div>
+    <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
       <div className="product-card position-relative">
         <div className="product-image">
           <img src={blog} alt="" />
