@@ -22,6 +22,7 @@ import PrivatePolicy from './pages/private-policy/PrivatePolicy';
 import ShippingPolicy from './pages/shipping-policy/ShippingPolicy';
 import TermsAndConditions from './pages/terms-and-conditions/TermsAndConditions';
 import SingleProduct from './pages/single-product/SingleProduct';
+import Checkout from './pages/checkout/Checkout';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path='privacy-policy' element={<PrivatePolicy />} />
           <Route path='shopping-policy' element={<ShippingPolicy />} />
           <Route path='terms-and-conditions' element={<TermsAndConditions />} />
+          <Route path='checkout' element={<Checkout />} />
           <Route path='*' element={<Error404 />} />
         </Route>
       </Routes>
