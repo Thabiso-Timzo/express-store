@@ -1,10 +1,6 @@
 import React from 'react'
 
-import { services } from '../../components/data/ServiceData'
-import { items } from '../../components/data/ItemsData'
-
-import { images } from '../../components/data/Marque'
-
+import { items, services, images } from '../../utils/data/Data'
 import Banner from '../../components/banner/Banner'
 import Offers from '../../components/offers/Offers'
 import Product from '../../components/product/Product'

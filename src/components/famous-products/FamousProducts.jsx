@@ -1,55 +1,26 @@
 import React from 'react'
 
-import laptop from '../../assets/product/4.jpeg'
-// 3:33:07
+import Container from '../container/Container'
+import { famousProducts } from '../../utils/data/Data'
+
 const FamousProducts = () => {
   return (
-    <div className='famous-products'>
-      <div className="container-xxl">
+    <Container classOne="famous-products py-4">
         <div className="row">
-            <div className="col-3">
-                <div className="famous-card position-relative">
-                    <img src={laptop} alt='' className="image"/>
-                    <div className="famous-content position-absolute">
-                        <h5>Laptop</h5>
-                        <h6>Lenovo</h6>
-                        <p>From only R4500</p>
+            {famousProducts.map((item, i) => (
+                <div className="col-3">
+                    <div className="famous-card position-relative" key={i}>
+                        <img src={item.product} alt='' className="image"/>
+                        <div className="famous-content position-absolute">
+                            <h5>{item.type}</h5>
+                            <h6>{item.brand}</h6>
+                            <p>{item.price}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="col-3">
-                <div className="famous-card position-relative">
-                    <img src={laptop} alt='' className="image"/>
-                    <div className="famous-content position-absolute">
-                        <h5>Laptop</h5>
-                        <h6>Lenovo</h6>
-                        <p>From only R4500</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-3">
-                <div className="famous-card position-relative">
-                    <img src={laptop} alt='' className="image"/>
-                    <div className="famous-content position-absolute">
-                        <h5>Laptop</h5>
-                        <h6>Lenovo</h6>
-                        <p>From only R4500</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-3">
-                <div className="famous-card position-relative">
-                    <img src={laptop} alt='' className="image"/>
-                    <div className="famous-content position-absolute">
-                        <h5>Laptop</h5>
-                        <h6>Lenovo</h6>
-                        <p>From only R4500</p>
-                    </div>
-                </div>
-            </div>
+            ))}
         </div>
-      </div>
-    </div>
+    </Container>
   )
 }
 

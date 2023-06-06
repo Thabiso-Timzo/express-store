@@ -26,7 +26,8 @@
 .policy-wrapper,
 .main-product-wrapper,
 .cart-wrapper,
-.checkout-wrapper{
+.checkout-wrapper,
+.marque {
   margin: 10px;
 }
 

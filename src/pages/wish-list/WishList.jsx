@@ -4,14 +4,14 @@ import { RxCross2 } from 'react-icons/rx'
 import Meta from '../../components/meta/Meta'
 import BreadCrum from '../../components/bread-crump/BreadCrum'
 import product from '../../assets/product/4.jpeg'
+import Container from '../../components/container/Container'
 
 const WishList = () => {
   return (
     <>
       <Meta title={'Wish-list'} />
       <BreadCrum title='Wish-list'/>
-      <div className="wishlist-wrapper">
-        <div className="container-xxl">
+      <Container classOne="wishlist-wrapper py-4">
           <div className="row">
             <div className="col-3">
               <div className="wishlist-card w-100 position-relative">
@@ -61,8 +61,7 @@ const WishList = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+          </Container>
     </>
   )
 }

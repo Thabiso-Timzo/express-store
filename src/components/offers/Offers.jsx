@@ -1,9 +1,10 @@
 import React from 'react'
 
+import Container from '../container/Container'
+
 const Offers = ({ items, services }) => {
-  return (
-    <section className='offers'>
-        <div className="container-xxl">
+    return (
+        <Container classOne="offers py-4">
             <div className="row">
                 <div className="col-12">
                     <div className="services">
@@ -52,9 +53,8 @@ const Offers = ({ items, services }) => {
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-  )
+        </Container>
+    )
 }
 
 export default Offers

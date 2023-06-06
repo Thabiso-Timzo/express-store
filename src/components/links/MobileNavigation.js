@@ -38,24 +38,24 @@ export const links = [
     },
     {
         id: 2,
-        url: 'store',
+        url: '/store',
         name: 'Our store',
         icon: FaStore
     },
     {
         id: 3,
-        url: 'blog',
+        url: '/blog',
         name: 'Blog',
         icon: FaBlog
     },{
         id: 4,
-        url: 'contact',
+        url: '/contact',
         name: 'Contact',
         icon: MdEmail
     },
     {
         id: 5,
-        url: 'compare',
+        url: '/compare',
         name: 'Compare',
         icon: MdCompareArrows
     }
@@ -65,13 +65,13 @@ export const authentication = [
     {
         id : 1,
         name: 'login',
-        url: 'login',
+        url: '/login',
         icon: MdOutlineLogin
     },
     {
         id : 2,
         name: 'register',
-        url: 'register',
+        url: '/register',
         icon: MdAppRegistration
     }
 ] 

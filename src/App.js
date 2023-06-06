@@ -14,7 +14,6 @@ import Store from './pages/store/Store';
 import Error404 from './pages/404/Error404';
 import Blog from './pages/blog/Blog'
 import ForgotPassword from './pages/forgot-password/ForgotPassword';
-import Account from './components/account/Account';
 import ResetPassword from './pages/reset-password/ResetPassword';
 import SingleBlog from './pages/single-blog/SingleBlog';
 import RefundPolicy from './pages/refund-policy/RefundPolicy';
@@ -34,12 +33,10 @@ function App() {
           <Route path='contact' element={<Contact />} />
           <Route path='cart' element={<Cart />} />
           <Route path='wishlist' element={<WishList />} />
-          <Route path='auth' element={<Account />}>
-            <Route index element={<Login />} />
-            <Route path='forgot-password' element={<ForgotPassword />} />
-            <Route path='register' element={<Register />} />
-            <Route path='reset-password' element={<ResetPassword />} />
-          </Route>
+          <Route path='login' element={<Login />} />
+          <Route path='forgot-password' element={<ForgotPassword />} />
+          <Route path='register' element={<Register />} />
+          <Route path='reset-password' element={<ResetPassword />} />
           <Route path='compare' element={<Compare />} />
           <Route path='store' element={<Store />} />
           <Route path='product/:id' element={<SingleProduct />} />

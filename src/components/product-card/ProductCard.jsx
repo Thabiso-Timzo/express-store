@@ -18,52 +18,32 @@ const ProductCard = ({ grid }) => {
   }
   
   return (
-    <>
-      <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
-      <Link to="/product/:id" className="product-card position-relative">
-        <div className="product-image">
-          <img src={blog} alt="" />
-          <div className="product-details">
-            <h6 className="brand">Sumsang</h6>
-            <h5 className="product-title">Samsung product</h5>
-            <Rating onClick={handleRating} initialValue={ratingValue} size={window.innerWidth > 768 ? 20: 14} />
-            <p className={`product-desc ${grid === 12 ? "d-block" : "d-none"}`}>Lapto is running</p>
-            <p className="price">R400</p>
-          </div>
-          <div className="action-bar position-absolute">
-            <div className="d-flex flex-column">
-              <Link to='wishlist'><BiHeart/></Link>
-              <Link to=''><MdCompareArrows /></Link>
-              <Link to=''><BsEye /></Link>
-              <Link to=''><HiOutlineShoppingBag /></Link>
+    <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
+      <Link to="/product/:id">
+        <div className="product-card position-relative">
+          <div className="product-image">
+            <buton>
+              <img src={blog} alt="" />
+            </buton>
+            <div className="product-details">
+              <h6 className="brand">Sumsang</h6>
+              <h5 className="product-title">Samsung product</h5>
+              <Rating onClick={handleRating} initialValue={ratingValue} size={window.innerWidth > 768 ? 20: 14} />
+              <p className={`product-desc ${grid === 12 ? "d-block" : "d-none"}`}>Lapto is running</p>
+              <p className="price">R400</p>
+            </div>
+            <div className="action-bar position-absolute">
+              <div className="d-flex flex-column">
+                <button className="border-0 bg-transparent"><BiHeart/></button>
+                <button className="border-0 bg-transparent"><MdCompareArrows /></button>
+                <button className="border-0 bg-transparent"><BsEye /></button>
+                <button className="border-0 bg-transparent"><HiOutlineShoppingBag /></button>
+              </div>
             </div>
           </div>
         </div>
       </Link>
     </div>
-    <div className={`${location.pathname === "/store" ? `gr-${grid}` : "col-3"}`}>
-      <div className="product-card position-relative">
-        <div className="product-image">
-          <img src={blog} alt="" />
-          <div className="product-details">
-            <h6 className="brand">Sumsang</h6>
-            <h5 className="product-title">Samsung product</h5>
-            <Rating onClick={handleRating} initialValue={ratingValue} size={window.innerWidth > 768 ? 20: 14} />
-            <p className={`product-desc ${grid === 12 ? "d-block" : "d-none"}`}>Lapto is running</p>
-            <p className="price">R400</p>
-          </div>
-          <div className="action-bar position-absolute">
-            <div className="d-flex flex-column">
-              <Link to='wishlist'><BiHeart/></Link>
-              <Link to=''><MdCompareArrows /></Link>
-              <Link to=''><BsEye /></Link>
-              <Link to=''><HiOutlineShoppingBag /></Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </>
   )
 }
 

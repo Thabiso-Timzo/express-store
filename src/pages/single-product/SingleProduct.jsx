@@ -10,6 +10,7 @@ import BreadCrum from '../../components/bread-crump/BreadCrum'
 import ProductCard from '../../components/product-card/ProductCard'
 import product from '../../assets/product/3.jpeg'
 import Colors from '../../components/colors/Colors';
+import Container from '../../components/container/Container';
 // 7:37:22
 const SingleProduct = () => {
     const [ratingValue, setRatingValue] = useState(0)
@@ -41,8 +42,8 @@ const SingleProduct = () => {
     <>
         <Meta title={'Product name'} />
         <BreadCrum title='Product name'/>
-        <div className="main-product-wrapper">
-            <div className="container-xxl">
+        <Container classOne="main-product-wrapper py-4">
+        
                 <div className="row">
                     <div className="col-6">
                         <div className="main-product-image">
@@ -162,8 +163,7 @@ const SingleProduct = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </Container>
         <div className="description-wrapper">
             <div className="container-xxl">
                 <div className="row">
