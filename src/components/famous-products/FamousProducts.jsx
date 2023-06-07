@@ -7,9 +7,9 @@ const FamousProducts = () => {
   return (
     <Container classOne="famous-products py-4">
         <div className="row">
-            {famousProducts.map((item, i) => (
+            {famousProducts.map((item) => (
                 <div className="col-3">
-                    <div className="famous-card position-relative" key={i}>
+                    <div className="famous-card position-relative" key={item.id}>
                         <img src={item.product} alt='' className="image"/>
                         <div className="famous-content position-absolute">
                             <h5>{item.type}</h5>

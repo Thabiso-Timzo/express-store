@@ -22,9 +22,9 @@ const ProductCard = ({ grid }) => {
       <Link to="/product/:id">
         <div className="product-card position-relative">
           <div className="product-image">
-            <buton>
+            <button className="border-0 transparent">
               <img src={blog} alt="" />
-            </buton>
+            </button>
             <div className="product-details">
               <h6 className="brand">Sumsang</h6>
               <h5 className="product-title">Samsung product</h5>
