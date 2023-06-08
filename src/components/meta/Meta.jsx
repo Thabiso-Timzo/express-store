@@ -1,12 +1,14 @@
 import React from 'react'
-import { Helmet } from "react-helmet";
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 const Meta = ({ title }) => {
   return (
-    <Helmet>
+    <HelmetProvider>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>{ title }</title>
-    </Helmet>
+      </Helmet>
+    </HelmetProvider>
   )
 }
 

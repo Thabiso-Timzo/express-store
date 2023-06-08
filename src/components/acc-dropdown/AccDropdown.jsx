@@ -27,13 +27,12 @@ const AccDropdown = () => {
           </div>
           {open && (
             <ul className='list'>
-              {links.map((item) => {
-                return (
+              {links.map(item =>  
                   <Link to={item.path}>
                     <li key={item.id}><item.icon /> {item.page}</li>
                   </Link>
-                )
-              })}
+              
+              )}
             </ul>
           )}
         </div>
