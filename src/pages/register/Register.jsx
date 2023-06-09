@@ -12,7 +12,7 @@ import { registerUser } from '../../features/user/userSlice'
 const registerSchema = yup.object({
   firstName: yup.string().required("First name is required."),
   lastName: yup.string().required("Last name is required."),
-  email: yup.string().email("Email should be valid."),
+  email: yup.string().email("Email should be valid.").required("Email address is required."),
   mobile: yup.string().required("Mobile No. is required."),
   password: yup.string().required("Pasword is required.")
 })
