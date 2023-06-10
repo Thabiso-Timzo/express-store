@@ -8,8 +8,8 @@ const FamousProducts = () => {
     <Container classOne="famous-products py-4">
         <div className="row">
             {famousProducts.map((item) => (
-                <div className="col-3">
-                    <div className="famous-card position-relative" key={item.id}>
+                <div className="col-3" key={item.id.toString()}>
+                    <div className="famous-card position-relative">
                         <img src={item.product} alt='' className="image"/>
                         <div className="famous-content position-absolute">
                             <h5>{item.type}</h5>

@@ -9,7 +9,7 @@ const Offers = ({ items, services }) => {
                 <div className="col-12">
                     <div className="services">
                         {services.map(service => (
-                            <div className="services-offer" key={service.id}>
+                            <div className="services-offer" key={service.id.toString()}>
                                 <service.icon className="icon" />
                                 <div className="content">
                                     <h5>{service.desc}</h5>
@@ -25,7 +25,7 @@ const Offers = ({ items, services }) => {
                     <div className="items">
                         <div className="products">
                             {items.map(item => (
-                                <div className="product" key={item.id}>
+                                <div className="product" key={item.id.toString()}>
                                     <div className="content">
                                         <h5>{item.desc}</h5>
                                         <p>{item.text}</p>
@@ -39,7 +39,7 @@ const Offers = ({ items, services }) => {
                         <hr />
                         <div className="products">
                             {items.map(item => (
-                                <div className="product">
+                                <div className="product" key={item.id.toString()}>
                                     <div className="content">
                                         <h5>{item.desc}</h5>
                                         <p>{item.text}</p>

@@ -12,26 +12,26 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300){
-      setVisible(true)
-    } else if (scrolled <= 300){
-      setVisible(false)
-    }
-  }
+     const scrolled = document.documentElement.scrollTop;
+     if (scrolled > 300){
+       setVisible(true)
+     } else if (scrolled <= 300){
+       setVisible(false)
+     }
+   }
   
-  const scrollToTop = () =>{
-    window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
-    })
-  }
+   const scrollToTop = () =>{
+     window.scrollTo({
+       top: 0, 
+       behavior: 'smooth'
+     })
+   }
 
-  window.addEventListener('scroll', toggleVisible);
+   window.addEventListener('scroll', toggleVisible);
 
   return (
     <>
-      <footer>
+       <footer>
         <div onClick={scrollToTop} className={visible ? 'arrow' : 'none'}>
           <FaArrowCircleUp  />
         </div>
@@ -47,9 +47,9 @@ const Footer = () => {
           <div className="section">
             <h5>Contact us</h5>
             <ul>
-              {socials.map(social => (
-                <Link to={social.url}>
-                  <div key={social.id} className="link">
+              {socials.map((social) => (
+                <Link to={social.url} key={social.id.toString()}>
+                  <div className="link">
                     <li>
                       <social.icon color={social.color} className='icon' />
                     </li>
@@ -62,8 +62,8 @@ const Footer = () => {
             <h5>Information</h5>
             <ul className='information'>
               {information.map(info => (
-                 <Link to={info.url}>
-                    <div key={info.id}>
+                 <Link to={info.url} key={info.id.toString()}>
+                    <div>
                       <li>{info.name}</li>
                     </div>
                  </Link> 
@@ -74,8 +74,8 @@ const Footer = () => {
             <h5>Account</h5>
             <ul className='account'>
               {account.map(acc => (
-                <Link to={acc.url}>
-                  <div key={acc.id}>
+                <Link to={acc.url} key={acc.id.toString()}>
+                  <div>
                     <li>{acc.name}</li>
                   </div>
                 </Link> 
@@ -86,8 +86,8 @@ const Footer = () => {
             <h5>Quick links</h5>
             <ul className='links'>
               {quickLinks.map(link => (
-                <Link to={link.url}>
-                  <div key={link.id}>
+                <Link to={link.url} key={link.id.toString()}>
+                  <div>
                     <li>{link.name}</li>
                   </div>
                 </Link> 
@@ -119,7 +119,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> 
       <div className="copyright">
         <p>Copyright  &copy; { year } Express store</p>
       </div>
