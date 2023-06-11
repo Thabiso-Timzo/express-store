@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 import { authService } from './userService';
 
-// User registration
+// User registration slice
 export const registerUser = createAsyncThunk("auth/register", async (userData, thunkAPI) => {
     try {
         return await authService.register(userData);
@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk("auth/register", async (userData, t
     }
 });
 
-// Login User
+// Login user slice
 export const loginUser = createAsyncThunk("auth/login", async (userData, thunkAPI) => {
     try {
         return await authService.login(userData);
@@ -21,8 +21,21 @@ export const loginUser = createAsyncThunk("auth/login", async (userData, thunkAP
     }
 });
 
+// Get user product list
+export const getuserProductWishlist = createAsyncThunk("user/wishlist", async (thunkAPI) => {
+    try {
+        return await authService.getUserWishList();
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+}); 
+
+const getCustomerFromLocalStorage = localStorage.getItem("customer") 
+    ? JSON.parse(localStorage.getItem("customer")) 
+    : null
+
 const initialState = {
-    user: "",
+    user: getCustomerFromLocalStorage,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -37,7 +50,8 @@ export const authSlice = createSlice({
         builder
         .addCase(registerUser.pending, (state) => {
             state.isLoading = true;
-        }).addCase(registerUser.fulfilled, (state, action) => {
+        })
+        .addCase(registerUser.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isError = false;
             state.isSuccess = true;
@@ -45,7 +59,8 @@ export const authSlice = createSlice({
             if (state.isSuccess === true) {
                 toast.info("User created.")
             }
-        }).addCase(registerUser.rejected, (state, action) => {
+        })
+        .addCase(registerUser.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.isSuccess = false;
@@ -65,7 +80,8 @@ export const authSlice = createSlice({
                 localStorage.setItem("token", action.payload.token)
                 toast.info("User logged in.")
             }
-        }).addCase(loginUser.rejected, (state, action) => {
+        })
+        .addCase(loginUser.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
             state.isSuccess = false;
@@ -73,6 +89,20 @@ export const authSlice = createSlice({
             if (state.isError === true) {
                 toast.error(action.error)
             }
+        })
+        .addCase(getuserProductWishlist.pending, (state) => {
+            state.isLoading = true;
+        }).addCase(getuserProductWishlist.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isError = false;
+            state.isSuccess = true;
+            state.wishlist = action.payload;
+        })
+        .addCase(getuserProductWishlist.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.isSuccess = false;
+            state.message = action.error;
         })
     }
 });

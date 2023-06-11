@@ -1,11 +1,14 @@
 import axios from "axios";
 
-import { base_url } from "../../utils/axiosConfig";
+import { base_url, config } from "../../utils/axiosConfig";
 
 // Register
 const register = async (userData) => {
     const response = await axios.post(`${base_url}/api/user/register`, userData)
     if (response.data) {
+        if (response.data) {
+            localStorage.setItem("customer", JSON.stringify(response.data))
+        }
         return response.data
     }
 }
@@ -18,7 +21,16 @@ const login = async (userData) => {
     }
 }
 
+// Get user wishlist
+const getUserWishList = async () => {
+    const response = await axios.get(`${base_url}/api/user/wishlist`, config)
+    if (response.data) {
+        return response.data
+    }
+}
+
 export const authService = {
     register,
-    login
+    login,
+    getUserWishList
 }
