@@ -41,11 +41,11 @@ const StoreCol3 = ({ pic1, ratingValue, handleRating, Rating }) => {
                 <div>
                     <h5 className="sub-title mt-3">Price</h5>
                     <div className="d-flex align-items-center gap-2">
-                        <div class="form-floating mb-3">
+                        <div className="form-floating mb-3">
                             <input type="email" className="form-control" id="floatingInput" placeholder="From" />
                             <label htmlFor="floatingInput">From</label>
                         </div>
-                        <div class="form-floating mb-3">
+                        <div className="form-floating mb-3">
                             <input type="email" className="form-control" id="floatingInput-1" placeholder="To" />
                             <label htmlFor="floatingInput-1">To</label>
                         </div>
