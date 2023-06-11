@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { BsGrid3X3Gap, BsGrid3X2Gap } from 'react-icons/bs'
 import { MdCheckBoxOutlineBlank, MdOutlineGridView } from 'react-icons/md'
 
 import ProductCard from '../product-card/ProductCard'
+import { GetAllProducts } from '../../features/products/productSlice'
 
 const StoreCol9 = ({ grid, setGrid }) => {
+
+  const productState = useSelector((state) => state?.product?.product)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getProducts()
+  },[]);
+
+  const getProducts = () => {
+    dispatch(GetAllProducts())
+  }
+  
   return (
     <div className="col-9">
         <div className="filter-sort-grid mb-4">
@@ -33,7 +48,7 @@ const StoreCol9 = ({ grid, setGrid }) => {
         </div>
         <div className="products-list pb-5">
           <div className="d-flex gap-3 flex-wrap">
-            <ProductCard grid={grid} />
+            <ProductCard data={productState ? productState : []} grid={grid} />
           </div>
         </div>
     </div>
