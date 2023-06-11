@@ -13,7 +13,6 @@ import {
   wishlist,
 } from '../links/MobileNavigation';
 import MobileSearch from '../mobile-search/MobileSearch'
-import SecondHeader from '../second-header/SecondHeader'
 
 const Header = () => {
   const [mobileNav, setMobileNav] = useState(false)
@@ -55,9 +54,6 @@ const Header = () => {
           </div> 
           <div className="co1-2">
             <div className="upper-links">
-              <div className='dropdown'>
-                <AccDropdown /> 
-              </div>
               <div className='favourite'>
                 <Link to='/wishlist'>
                   <wishlist.icon className='icons'/>
@@ -71,13 +67,13 @@ const Header = () => {
                   </div>
                 </Link>
               </div>
+              <div className='dropdown'>
+                <AccDropdown /> 
+              </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
-      <header className='second-nav'>
-        <SecondHeader />
       </header>
       <Mobile handleClick={handleClick} mobileNav={mobileNav} />
       <div className="mobile-search">
