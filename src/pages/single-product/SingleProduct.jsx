@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {  Rating }from 'react-simple-star-rating'
 import { Link } from 'react-router-dom';
-import ReactImageZoom from 'react-image-zoom'
 import { TbGitCompare } from 'react-icons/tb'
 import { AiOutlineHeart } from 'react-icons/ai'
 
@@ -19,13 +18,6 @@ const SingleProduct = () => {
     const handleRating = (rate) => {
         setRatingValue(rate)
         setOrderedProduct(true)
-    }
-    
-    const props = { 
-        width: 400, 
-        height: 250, 
-        zoomWidth: 500, 
-        img: product 
     }
 
     const copyToClipboard = (text) => {
@@ -48,7 +40,7 @@ const SingleProduct = () => {
                     <div className="col-6">
                         <div className="main-product-image">
                             <div>
-                                <ReactImageZoom {...props} />
+                                <img src={product} alt='' className="w-100" />
                             </div>
                         </div>
                         <div className="other-product-images d-flex flex-wrap gap-3">
