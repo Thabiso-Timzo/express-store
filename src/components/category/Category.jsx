@@ -14,14 +14,14 @@ const Category = () => {
         setOpen(!open)
     }
   return (
-    <div header-container>
+    
         <div className="wrapper">
             <div className="dropdown">
                 <div className="dropdown-wrapper">
                     <div className="dropdown-container">
                         <div className="dropdown-header" onClick={handleClick}>
                             <div className="dropdown-title">
-                               <p>{selected ? selected : "Category"}</p> 
+                               <p className="text-dark">{selected ? selected : "Category"}</p> 
                             </div>
                             {open ? <MdOutlineKeyboardArrowDown />: <MdOutlineKeyboardArrowUp /> }
                         </div>
@@ -30,6 +30,7 @@ const Category = () => {
                         <ul className='list'>
                             {options.map((item, i) => (
                                 <li 
+                                    key={i}
                                     onClick={
                                         () => {setSelected(item);
                                         setOpen(false)
@@ -41,7 +42,7 @@ const Category = () => {
                 </div>
             </div>
         </div>
-    </div>
+  
   )
 }
 

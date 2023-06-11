@@ -20,9 +20,9 @@ const AccDropdown = () => {
           <div className="dropdown-container">
             <div className="dropdown-header" onClick={handleClick}>
               <div className="dropdown-title">
-                My Account  
+                <p className='text-white'>My Account</p>  
               </div>
-              {open ? <MdOutlineKeyboardArrowDown />: <MdOutlineKeyboardArrowUp /> }
+              {open ? <MdOutlineKeyboardArrowDown color='white' />: <MdOutlineKeyboardArrowUp color='white' /> }
             </div>
           </div>
           {open && (
