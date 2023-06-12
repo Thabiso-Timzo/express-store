@@ -10,8 +10,8 @@ import Container from '../../components/container/Container'
 import { registerUser } from '../../features/user/userSlice'
 
 const registerSchema = yup.object({
-  firstName: yup.string().required("First name is required."),
-  lastName: yup.string().required("Last name is required."),
+  firstname: yup.string().required("First name is required."),
+  lastname: yup.string().required("Last name is required."),
   email: yup.string().email("Email should be valid.").required("Email address is required."),
   mobile: yup.string().required("Mobile No. is required."),
   password: yup.string().required("Pasword is required.")
@@ -22,8 +22,8 @@ const Register = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       mobile: "",
       password: ""
@@ -50,13 +50,13 @@ const Register = () => {
                     name="firstname" 
                     placeholder="Enter your first name" 
                     className="form-control" 
-                    value={formik.values.firstName}
-                    onChange={formik.handleChange("firstName")}  
-                    onBlur={formik.handleBlur("firstName")}
+                    value={formik.values.firstname}
+                    onChange={formik.handleChange("firstname")}  
+                    onBlur={formik.handleBlur("firstname")}
                   />
                 </div>
                 <div className="error text-danger">
-                  {formik.touched.firstName && formik.errors.firstName}
+                  {formik.touched.firstname && formik.errors.firstname}
                 </div>
                 <div>
                   <input 
@@ -64,13 +64,13 @@ const Register = () => {
                     name="lastname" 
                     placeholder="Enter your second name" 
                     className="form-control" 
-                    value={formik.values.lastName}
-                    onChange={formik.handleChange("lastName")}
-                    onBlur={formik.handleBlur("lastName")}
+                    value={formik.values.lastname}
+                    onChange={formik.handleChange("lastname")}
+                    onBlur={formik.handleBlur("lastname")}
                   />
                 </div>
                 <div className="error text-danger">
-                  {formik.touched.lastName && formik.errors.lastName}
+                  {formik.touched.lastname && formik.errors.lastname}
                 </div>
                 <div>
                   <input 

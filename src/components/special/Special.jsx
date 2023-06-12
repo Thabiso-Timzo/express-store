@@ -3,7 +3,7 @@ import React from 'react'
 import SpecialCard from '../special-card/SpecialCard'
 import Container from '../container/Container'
 
-const Special = () => {
+const Special = ({ productState }) => {
   return (
     <Container classOne="spacial py-4">       
         <div className="row">
@@ -12,9 +12,21 @@ const Special = () => {
             </div>
         </div>
         <div className="row">
-            <SpecialCard />
-            <SpecialCard />
-            <SpecialCard />
+          {productState && productState?.map((item, index) => {
+            if (item.tags === "special") {
+              return (
+                <SpecialCard 
+                  key={index} 
+                  title={item?.title}
+                  brand={item?.brand}
+                  totalrating={item?.totalrating}
+                  price={item?.price}
+                  sold={item?.sold}
+                  quantity={item?.quantity}
+                />
+              )
+            }
+          })}
         </div>
     </Container>
   )

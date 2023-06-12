@@ -16,7 +16,7 @@ const WishList = () => {
     dispatch(getuserProductWishlist()) 
   },[dispatch])
 
-  const wishlistState = useSelector((state) => state.auth.wishList)
+  const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist)
   
   const removeFromWishlist = (id) => {
     dispatch(addToWishlist(id))
@@ -31,11 +31,11 @@ const WishList = () => {
       <BreadCrum title='Wish-list'/>
       <Container classOne="wishlist-wrapper py-4">
         <div className="row">
-          {!wishlistState && (
+          {/* {!wishlistState && (
             <div className="text-center fs-3">
               No data
             </div>
-          )}
+          )} */}
           {wishlistState?.map((item, index) => {
             return (
               <div className="col-3" key={index}>
