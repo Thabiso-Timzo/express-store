@@ -16,7 +16,7 @@ import { GetAllProducts } from '../../features/products/productSlice';
 
 const Home = () => {
   const dispatch = useDispatch()
-
+  
   const productState = useSelector((state) => state.product.product)
 
   useEffect(() => {

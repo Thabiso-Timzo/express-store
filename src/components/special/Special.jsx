@@ -16,7 +16,9 @@ const Special = ({ productState }) => {
             if (item.tags === "special") {
               return (
                 <SpecialCard 
+                  id={item?._id}
                   key={index} 
+                  image={item?.images[0].url}
                   title={item?.title}
                   brand={item?.brand}
                   totalrating={item?.totalrating}

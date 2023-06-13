@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
 
-import product from '../../assets/product/3.jpeg'
+import no_image from '../../assets/no-image.png'
 
-const SpecialCard = ({ title, brand, price, totalrating, sold, quantity }) => {
+const SpecialCard = ({ id, title, brand, image, price, totalrating, sold, quantity }) => {
   const [ratingValue, setRatingValue] = useState(0)
 
   const handleRating = (rate) => {
@@ -16,7 +16,7 @@ const SpecialCard = ({ title, brand, price, totalrating, sold, quantity }) => {
       <div className="special-product-card">
         <div className="spacial-wrapper">
           <div>
-            <img src={product} className="image-fluid" alt="" />
+            <img src={image ? image : no_image} className="image-fluid" alt="" />
           </div>
           <div className="special-product-content">
             <h5 className="brand">{brand}</h5>
@@ -46,7 +46,7 @@ const SpecialCard = ({ title, brand, price, totalrating, sold, quantity }) => {
                   ></div>
               </div>
             </div>
-            <Link to="#">Add to Cart</Link>
+            <Link to={'/product/' + id}>View</Link> 
           </div>
         </div>
       </div>
