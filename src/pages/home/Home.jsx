@@ -11,6 +11,7 @@ import Marque from '../../components/marque/Marque'
 import Blog from '../../components/blog/Blog'
 import FamousProducts from '../../components/famous-products/FamousProducts'
 import Meta from '../../components/meta/Meta'
+import FeaturedCollection from '../../components/featured-collection/FeaturedCollection'
 import { GetAllProducts } from '../../features/products/productSlice';
 
 const Home = () => {
@@ -33,6 +34,7 @@ const Home = () => {
         <Banner />
         <Offers services={services} items={items}/>
         <Product />
+        <FeaturedCollection productState={productState} />
         <FamousProducts />
         <Special productState={productState} />
         <PopularProducts  productState={productState} />
