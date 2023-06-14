@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {  Rating }from 'react-simple-star-rating'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { TbGitCompare } from 'react-icons/tb'
 import { AiOutlineHeart } from 'react-icons/ai'
 
 import Meta from '../../components/meta/Meta'
 import BreadCrum from '../../components/bread-crump/BreadCrum'
 import ProductCard from '../../components/product-card/ProductCard'
-import product from '../../assets/product/3.jpeg'
+import no_image from '../../assets/no-image.png'
 import Colors from '../../components/colors/Colors';
 import Container from '../../components/container/Container';
-// 7:37:22
+import { GetSingleProducts } from '../../features/products/productSlice';
+
 const SingleProduct = () => {
+    const dispatch = useDispatch()
     const [ratingValue, setRatingValue] = useState(0)
     const [orderedProduct, setOrderedProduct] = useState(true)
+    const location = useLocation()
+    
+    const getProductId = location.pathname.split("/")[2]
+    const productState = useSelector((state) => state.product.singleproduct)
+    
+    useEffect(() => {
+        dispatch(GetSingleProducts(getProductId))
+    },[])
     
     const handleRating = (rate) => {
         setRatingValue(rate)
-        setOrderedProduct(true)
+        // setOrderedProduct(true)
     }
 
     const copyToClipboard = (text) => {
@@ -32,36 +43,36 @@ const SingleProduct = () => {
 
   return (
     <>
-        <Meta title={'Product name'} />
-        <BreadCrum title='Product name'/>
+        <Meta title={productState?.title} />
+        <BreadCrum title={productState?.title}/>
         <Container classOne="main-product-wrapper py-4">
         
                 <div className="row">
                     <div className="col-6">
                         <div className="main-product-image">
-                            <div>
-                                <img src={product} alt='' className="w-100" />
+                            <div className="border-1">
+                                <img src={productState?.images[0]?.url ? productState?.images[0]?.url : no_image} alt='' className="main-image" />
                             </div>
                         </div>
                         <div className="other-product-images d-flex flex-wrap gap-3">
-                            <div><img src={product} className="image" alt='' /></div>
-                            <div><img src={product} className="image" alt='' /></div>
-                            <div><img src={product} className="image" alt='' /></div>
-                            <div><img src={product} className="image" alt='' /></div>
+                            <div><img src={productState?.images[0]?.url ? productState?.images[0]?.url : no_image} className="image" alt='' /></div>
+                            <div><img src={productState?.images[1]?.url ? productState?.images[1]?.url : no_image} className="image" alt='' /></div>
+                            <div><img src={productState?.images[2]?.url ? productState?.images[2]?.url : no_image} className="image" alt='' /></div>
+                            <div><img src={productState?.images[3]?.url ? productState?.images[3]?.url : no_image} className="image" alt='' /></div>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="main-product-details">
                             <div className="border-bottom">
-                                <h3 className="title">Bulk Laptop</h3>
+                                <h3 className="title">{productState?.title}</h3>
                                 <hr/>
                             </div>
                             <div>
-                                <p className="price">R5500</p>
+                                <p className="price">R{productState?.price}</p>
                                 <div className="d-flex align-items-center gap-3">
                                     <Rating 
                                         onClick={handleRating} 
-                                        initialValue={ratingValue} 
+                                        initialValue={productState?.totalratings} 
                                         size={window.innerWidth > 768 ? 20: 14}
                                     />
                                     <p className="review-btn mb-0">(2 reviews)</p>
@@ -81,15 +92,15 @@ const SingleProduct = () => {
                                 </div>
                                 <div className="d-flex gap-3 align-items-center my-2">
                                     <h3 className="product-heading">Brand:</h3> 
-                                    <p className="product-data">Lenovo</p>
+                                    <p className="product-data">{productState?.brand}</p>
                                 </div>
                                 <div className="d-flex gap-3 align-items-center my-2">
                                     <h3 className="product-heading">Category:</h3> 
-                                    <p className="product-data">Electronics</p>
+                                    <p className="product-data">{productState?.category}</p>
                                 </div>
                                 <div className="d-flex gap-3 align-items-center my-2">
                                     <h3 className="product-heading">Tags:</h3> 
-                                    <p className="product-data">Thabiso</p>
+                                    <p className="product-data">{productState?.tags}</p>
                                 </div>
                                 <div className="d-flex gap-3 align-items-center my-2">
                                     <h3 className="product-heading">Availabilty:</h3> 
@@ -144,11 +155,11 @@ const SingleProduct = () => {
                                 </div>
                                 <div className="d-flex gap-3 align-items-center my-3">
                                     <h3 className="product-heading">Copy product link:</h3> 
-                                    <Link 
-                                        //to="javascript:void(0)" 
+                                    <a
+                                        href="javascript:void(0)" 
                                         onClick={() => {
-                                        copyToClipboard('product-link')
-                                    }}>Copy link</Link>
+                                        copyToClipboard(window.location.href)
+                                    }}>Copy link</a>
                                 </div>
                                 <hr />
                             </div>
@@ -162,10 +173,7 @@ const SingleProduct = () => {
                     <div className="col-12">
                         <h4 className="mt-5">Description</h4>
                         <div className="p-3 paragraph">    
-                            <p>
-                                djdfdkf glrgkljgkr rlgjrlkgjlrjg lkgrjglkjrlg 
-                                rlgjrlkgjrk rgkrgjrk gorjglrjn orjgorj rkgojeroh
-                            </p>
+                            <p dangerouslySetInnerHTML={{__html: productState?.description}}></p>
                         </div>
                     </div>
                 </div>
