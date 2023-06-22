@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillDelete } from 'react-icons/ai'
+import { useDispatch, useSelector } from 'react-redux';
 
 import Meta from '../../components/meta/Meta'
 import BreadCrum from '../../components/bread-crump/BreadCrum'
 import pic from '../../assets/product/4.jpeg'
 import Container from '../../components/container/Container'
+import { getProductCart } from '../../features/user/userSlice';
 
 const Cart = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getProductCart())
+  }, [])
+
   return (
     <>
       <Meta title={'Cart'} />

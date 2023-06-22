@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { TbGitCompare } from 'react-icons/tb'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { toast } from 'react-toastify';
 
 import Meta from '../../components/meta/Meta'
 import BreadCrum from '../../components/bread-crump/BreadCrum'
@@ -12,9 +13,12 @@ import no_image from '../../assets/no-image.png'
 import Colors from '../../components/colors/Colors';
 import Container from '../../components/container/Container';
 import { GetSingleProducts } from '../../features/products/productSlice';
+import { addProductToCart } from '../../features/user/userSlice'
 
 const SingleProduct = () => {
     const dispatch = useDispatch()
+    const [color, setColor] = useState(null)
+    const [quantity, setQuantity] = useState(1)
     const [ratingValue, setRatingValue] = useState(0)
     const [orderedProduct, setOrderedProduct] = useState(true)
     const location = useLocation()
@@ -26,19 +30,18 @@ const SingleProduct = () => {
         dispatch(GetSingleProducts(getProductId))
     },[])
     
+    const uploadCart = () => {
+        //if (color === false) {
+            //toast.error("Please a color.")
+            //return false
+        //} else {
+            dispatch(addProductToCart({productId: productState?._id, quantity, color, price: productState?.price}))
+        //}
+    }
+    
     const handleRating = (rate) => {
         setRatingValue(rate)
         // setOrderedProduct(true)
-    }
-
-    const copyToClipboard = (text) => {
-        console.log("text", text)
-        var textField = document.createElement("textarea")
-        textField.innerText = text
-        document.body.appendChild(textField)
-        textField.select()
-        document.execCommand("copy")
-        textField.remove()
     }
 
   return (
@@ -117,7 +120,7 @@ const SingleProduct = () => {
                                 </div>
                                 <div className="d-flex gap-3 flex-column mt-2 mb-3">
                                     <h3 className="product-heading">Color:</h3> 
-                                    <Colors />
+                                    <Colors setColor={setColor} colorData={productState?.color} />
                                 </div>
                                 <div className="d-flex gap-3 flex-row mt-2 mb-3">
                                     <h3 className="product-heading">Quantity:</h3> 
@@ -130,10 +133,16 @@ const SingleProduct = () => {
                                             id="" 
                                             min={1}
                                             max={10}
+                                            value={quantity}
+                                            onChange={(e) => setQuantity(e.target.value)}
                                         />
                                     </div>
                                     <div className="d-flex align-items-center gap-2 w-100">
-                                        <button type="submit" className="btn btn-primary mt-20 w-50">Add to cart</button>
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-primary mt-20 w-50"
+                                            onClick={() => {uploadCart()}}
+                                        >Add to cart</button>
                                         <button type="submit" className="btn btn-primary mt-20 w-50">Buy it now</button>
                                     </div>
                                 </div>
@@ -152,14 +161,6 @@ const SingleProduct = () => {
                                         We ship all South African domestic orders within
                                         <b> 5-10 business days!</b>
                                     </p>
-                                </div>
-                                <div className="d-flex gap-3 align-items-center my-3">
-                                    <h3 className="product-heading">Copy product link:</h3> 
-                                    <a
-                                        href="javascript:void(0)" 
-                                        onClick={() => {
-                                        copyToClipboard(window.location.href)
-                                    }}>Copy link</a>
                                 </div>
                                 <hr />
                             </div>
